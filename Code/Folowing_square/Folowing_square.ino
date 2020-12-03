@@ -43,14 +43,7 @@ void setup() {
   Serial.println(" ***Reset*** ");
 
   last_timestamp = millis();
-
 }
-
-
-
-
-
-
 
 
 void move_in_square(int t)
@@ -63,7 +56,7 @@ void move_in_square(int t)
   }
   else if (time_elapsed < (t + r) )
   {
-    powerInput(0, TURN_PWR);
+    powerInput(0, PWR);
   }
 
   else if (time_elapsed < (t * 2 + r))
@@ -71,17 +64,17 @@ void move_in_square(int t)
     powerInput(PWR, PWR);
   }
 
-  else if (time_elapsed < (t * 2 + r * 2))
+  else if (time_elapsed < ( (2*t+2*r)) )
   {
-    powerInput(0, TURN_PWR);
+    powerInput(0, PWR);
   }
   else if (time_elapsed < (t * 3 + r * 2))
   {
     powerInput(PWR, PWR + 2);
   }
-  else if (time_elapsed < (t * 3 + r * 3))
+  else if (time_elapsed < ((3*t+3*r)))
   {
-    powerInput(0, TURN_PWR);
+    powerInput(0, PWR);
   }
   else if (time_elapsed < (t * 4 + r * 3))
   {
@@ -89,7 +82,7 @@ void move_in_square(int t)
   }
   else if (time_elapsed < (t * 4 + r * 4))
   {
-    powerInput(0, TURN_PWR);
+    powerInput(0, PWR);
   }
   else
   {
@@ -109,8 +102,8 @@ void loop() {
   // Adjust power. e.g., increment by 4 on every loop()
   //speedChange();
 
-  go_forward(SQR_t); //Start and move for a period and then comes back to statrting point
-  //move_in_square(SQR_t); // function moves the robot in a square an then stops
+  //go_forward(SQR_t); //Start and move for a period and then comes back to statrting point
+  move_in_square(SQR_t); // function moves the robot in a square an then stops
 
   // Send power PWM to pins, to motor drivers.
   analogWrite( L_PWM_PIN, l_power );
