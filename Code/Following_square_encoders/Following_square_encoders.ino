@@ -15,7 +15,7 @@
 #define SQR_t 3270  // The time to move 50 cm at 40,40 power
 #define CPR 1440     // Counts per revolution of the wheel
 #define WC 21.98     // Wheel circumference in cm.
-#define CF10 3276   // Counts for 10cm
+#define CF50 3276   // Counts for 50cm
 
 #define TURN_PWR 40
 #define PWR 40
@@ -97,29 +97,29 @@ void loop() {
 
 void square_e_move(){
   
-  if ( count_er < CF10 )
+  if ( count_er < CF50 )
   {
     powerInput(30,31);
   }
-  else if(count_er< ( CF10+CPR) ) {
+  else if(count_er< ( CF50+CPR) ) {
     powerInput(0,31);
   }
-  else if( count_er< ( 2*CF10+CPR ) ) {
+  else if( count_er< ( 2*CF50+CPR ) ) {
     powerInput(30,31);
   }
-  else if( count_er< ( 2*(CF10+CPR) ) ) {
+  else if( count_er< ( 2*(CF50+CPR) ) ) {
     powerInput(0,31);
   }
-   else if(count_er< ( 3*CF10+CPR*2 ) ) {
+   else if(count_er< ( 3*CF50+CPR*2 ) ) {
     powerInput(30,31);
   }
-   else if(count_er< ( 3*(CF10+CPR) ) ) {
+   else if(count_er< ( 3*(CF50+CPR) ) ) {
     powerInput(0,31);
   }
-   else if( count_er< ( 4*CF10+3*CPR ) ) {
+   else if( count_er< ( 4*CF50+3*CPR ) ) {
     powerInput(30,31);
   }
-   else if( count_er< ( 4*(CF10+CPR) ) ){
+   else if( count_er< ( 4*(CF50+CPR) ) ){
     powerInput(0,31);
   }
   else{
