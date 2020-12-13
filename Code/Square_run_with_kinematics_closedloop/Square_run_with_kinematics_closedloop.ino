@@ -283,9 +283,9 @@ void printPose() {
   if (pose_print_dt > 100) {
     pose_print_ts = millis();
     Serial.print(RomiPose.x);
-    Serial.print(",");
+    Serial.print("\t");
     Serial.print(RomiPose.y);
-    Serial.print( "," );
+    Serial.print( "\t" );
     Serial.println( RomiPose.theta );
   }
 }
